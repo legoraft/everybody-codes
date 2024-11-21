@@ -25,9 +25,38 @@ fn part_one(input: &str) -> i64 {
 }
 
 fn part_two(input: &str) -> i64 {
-
+    let creature_pairs: Vec<(char, char)> = input
+        .chars().step_by(2)
+        .zip(input.chars().skip(1).step_by(2))
+        .collect();
     
-    0
+    let mut answer = 0;
+    
+    for pair in creature_pairs {
+        let mut points = 0;
+        
+        match pair.0 {
+            'A' => points += 1,
+            'B' => points += 2,
+            'C' => points += 4,
+            'D' => points += 6,
+            'x' => points -= 1,
+            _ => panic!("That can't happen!")
+        }
+        
+        match pair.1 {
+            'A' => points += 1,
+            'B' => points += 2,
+            'C' => points += 4,
+            'D' => points += 6,
+            'x' => points -= 1,
+            _ => panic!("That can't happen!")
+        }
+        
+        answer += points;
+    }
+    
+    answer
 }
 
 #[cfg(test)]
