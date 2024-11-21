@@ -25,6 +25,8 @@ fn part_one(input: &str) -> i64 {
 }
 
 fn part_two(input: &str) -> i64 {
+
+    
     0
 }
 
@@ -38,5 +40,13 @@ mod tests {
         let answer = 5;
         
         assert_eq!(part_one(input), answer);
+    }
+    
+    #[test]
+    fn test_part_two() {
+        let input = "AxBCDDCAxD";
+        let answer = 28;
+        
+        assert_eq!(part_two(input), answer);
     }
 }
