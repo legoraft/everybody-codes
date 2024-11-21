@@ -1,6 +1,6 @@
 fn main() {
     let input_one = include_str!("../../inputs/quest_01/part_01.txt");
-    let input_two = include_str!("../../inputs/quest_01/part_01.txt");
+    let input_two = include_str!("../../inputs/quest_01/part_02.txt");
     
     let answer_one = part_one(input_one);
     let answer_two = part_two(input_two);
