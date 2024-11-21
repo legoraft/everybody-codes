@@ -72,21 +72,18 @@ fn part_three (input: &str) -> i64 {
     let mut answer = 0;
     
     for pair in creature_pairs {
-        let mut potions = 0;
+        let mut potions: i64 = 0;
+        let empty = pair.iter().filter(|c| *c == &'x').count();
         
         for creature in pair {
             match creature {
-                'A' => potions += 2,
-                'B' => potions += 3,
-                'C' => potions += 5,
-                'D' => potions += 7,
-                'x' => potions -= 1,
+                'A' => potions += 2 - empty as i64,
+                'B' => potions += 3 - empty as i64,
+                'C' => potions += 5 - empty as i64,
+                'D' => potions += 7 - empty as i64,
+                'x' => continue,
                 _ => panic!("That can't happen!")
             }
-        }
-        
-        if potions < 0 {
-            continue;
         }
         
         answer += potions;
