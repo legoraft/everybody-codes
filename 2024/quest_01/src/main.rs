@@ -86,6 +86,10 @@ fn part_three (input: &str) -> i64 {
             }
         }
         
+        if potions < 0 {
+            continue;
+        }
+        
         answer += potions;
     }
     
