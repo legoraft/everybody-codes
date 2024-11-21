@@ -11,6 +11,19 @@ fn main() {
 }
 
 fn part_one(input: &str) -> i64 {
+    let (words, inscription) = input.split_once("\n\n").unwrap();
+    let mut count = 0;
+    
+    let (_, words) = words.split_once(":").unwrap();
+    let words: Vec<&str> = words.split(",").collect();
+    let inscription: Vec<&str> = inscription.split_whitespace().collect();
+    
+    for word in inscription {
+        if words.iter().any(|w| word.contains(w)) {
+            dbg!(&word);
+            count += 1;
+        }
+    }
     
     0
 }
@@ -24,7 +37,7 @@ mod tests {
         let input = "\
 WORDS:THE,OWE,MES,ROD,HER
 
-AWAKEN THE POWER ADORNED WITH THE FLAMES BRIGHT IRE";
+AWAKEN THE POWER ADORNED WITH THE FLAMES BRIGHT IRE THERE";
         let answer = 4;
         
         assert_eq!(part_one(input), answer);
