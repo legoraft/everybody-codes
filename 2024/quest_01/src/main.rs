@@ -66,9 +66,33 @@ fn part_two(input: &str) -> i64 {
 }
 
 fn part_three (input: &str) -> i64 {
+    let characters: Vec<char> = input.chars().collect();
+    let creature_pairs: Vec<&[char]> = characters.chunks(3).collect();
     
+    let mut answer = 0;
     
-    0
+    for pair in creature_pairs {
+        let mut potions = 0;
+        
+        for creature in pair {
+            match creature {
+                'A' => potions += 2,
+                'B' => potions += 3,
+                'C' => potions += 5,
+                'D' => potions += 7,
+                'x' => potions -= 1,
+                _ => panic!("That can't happen!")
+            }
+        }
+        
+        if potions < 0 {
+            continue;
+        }
+        
+        answer += potions;
+    }
+    
+    answer
 }
 
 #[cfg(test)]
