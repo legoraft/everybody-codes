@@ -53,6 +53,10 @@ fn part_two(input: &str) -> i64 {
             _ => panic!("That can't happen!")
         }
         
+        if points < 0 {
+            points = 0;
+        }
+        
         answer += points;
     }
     
