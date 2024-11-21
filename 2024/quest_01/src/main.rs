@@ -1,11 +1,13 @@
 fn main() {
     let input_one = include_str!("../../inputs/quest_01/part_01.txt");
     let input_two = include_str!("../../inputs/quest_01/part_02.txt");
+    let input_three = include_str!("../../inputs/quest_01/part_03.txt");
     
     let answer_one = part_one(input_one);
     let answer_two = part_two(input_two);
+    let answer_three = part_three(input_three);
     
-    println!("Part one: {}\nPart two: {}", answer_one, answer_two);
+    println!("Part one: {}\nPart two: {}\nPart three: {}", answer_one, answer_two, answer_three);
 }
 
 fn part_one(input: &str) -> i64 {
@@ -63,6 +65,12 @@ fn part_two(input: &str) -> i64 {
     answer
 }
 
+fn part_three (input: &str) -> i64 {
+    
+    
+    0
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -81,5 +89,13 @@ mod tests {
         let answer = 28;
         
         assert_eq!(part_two(input), answer);
+    }
+    
+    #[test]
+    fn test_part_three() {
+        let input = "xBxAAABCDxCC";
+        let answer = 30;
+        
+        assert_eq!(part_three(input), answer);
     }
 }
